@@ -11,6 +11,7 @@ public abstract class Tile {
   // protected : subclass 에서만 access
   // final : 멤버 필드가 생성자로 인해 생성되면 다시 설정할 수 없다.
 
+  // 유효한 빈 타일을 새로 생성하고 싶을 때 마다 새로 생성하는 대신 하나를 검색. 캐시에서 조회
   private static final Map<Integer,EmptyTile> EMPTY_TILES = createAllPossibleEmptyTiles();
 
   private static Map<Integer, EmptyTile> createAllPossibleEmptyTiles() {
@@ -23,6 +24,8 @@ public abstract class Tile {
     return ImmutableMap.copyOf(emptyTileMap);
   }
 
+  // Tile 을 생성하는 유일한 방법.
+  // piece 가 null 이라면 캐시된 빈 타일 중 하나를 얻게 된다.
   public static Tile createTile(final int tileCoordinate,final Piece piece) {
     return piece !=null ? new OccupiedTile(tileCoordinate,piece) : EMPTY_TILES.get(tileCoordinate);
   }
