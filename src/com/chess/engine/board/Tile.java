@@ -12,7 +12,7 @@ public abstract class Tile {
   // final : 멤버 필드가 생성자로 인해 생성되면 다시 설정할 수 없다.
 
   // 유효한 빈 타일을 새로 생성하고 싶을 때 마다 새로 생성하는 대신 하나를 검색. 캐시에서 조회
-  private static final Map<Integer,EmptyTile> EMPTY_TILES = createAllPossibleEmptyTiles();
+  private static final Map<Integer,EmptyTile> EMPTY_TILES_CACHE = createAllPossibleEmptyTiles();
 
   private static Map<Integer, EmptyTile> createAllPossibleEmptyTiles() {
 
@@ -27,7 +27,7 @@ public abstract class Tile {
   // Tile 을 생성하는 유일한 방법.
   // piece 가 null 이라면 캐시된 빈 타일 중 하나를 얻게 된다.
   public static Tile createTile(final int tileCoordinate,final Piece piece) {
-    return piece !=null ? new OccupiedTile(tileCoordinate,piece) : EMPTY_TILES.get(tileCoordinate);
+    return piece !=null ? new OccupiedTile(tileCoordinate,piece) : EMPTY_TILES_CACHE.get(tileCoordinate);
   }
 
   private Tile(int tileCoordinate) {
@@ -39,7 +39,7 @@ public abstract class Tile {
 
   public static final class EmptyTile extends Tile {
 
-    public EmptyTile(final int tileCoordinate) {
+    private EmptyTile(final int tileCoordinate) {
       super(tileCoordinate);
     }
 
@@ -56,7 +56,7 @@ public abstract class Tile {
   public static final class OccupiedTile extends Tile {
     private final Piece pieceOnTile;
 
-    public OccupiedTile(int tileCoordinate, Piece pieceOnTile) {
+    private OccupiedTile(int tileCoordinate, Piece pieceOnTile) {
       super(tileCoordinate);
       this.pieceOnTile = pieceOnTile;
     }
