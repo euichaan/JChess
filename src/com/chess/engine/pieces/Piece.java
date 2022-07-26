@@ -9,7 +9,15 @@ import java.util.List;
 public abstract class Piece {
 
   protected final int piecePosition; // 위치
-  protected final Alliance pieceAlliance; // 동맹
+  protected final Alliance pieceAlliance; // 흰색, 검은색 중 하나
+
+  public int getPiecePosition() {
+    return this.piecePosition;
+  }
+
+  public Alliance getPieceAlliance() {
+    return this.pieceAlliance;
+  }
 
   // Constructor
   public Piece(final int piecePosition,final Alliance pieceAlliance) {
