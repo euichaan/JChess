@@ -16,7 +16,9 @@
 [7/20] abstract class인 Piece class에 기물의 이동을 나타내는 abstract method 정의.
 Board와 Move class 생성  
 [7/26] concrete class Knight 구현. 타일이 점유되어 있지 않다면 새로운 이동이 추가. 타일이 점유되어 있고  
-현재 Knight의 색과 이동하려는 기물의 색이 다르다면 적이므로 새로운 이동 (공격) 을 추가.
+현재 Knight의 색과 이동하려는 기물의 색이 다르다면 적이므로 새로운 이동 (공격) 을 추가.  
+[8/1] Knight는 체스 판에서 첫 번째, 두 번째, 일곱 번째, 여덟 번째 줄에 위치할 때 이동 가능한  
+Offset 만큼 이동한 위치가 예상과는 다른 (범위를 벗어난) 위치일 수 있다. 이것을 처리한다.
 
 
 ## References
