@@ -1,9 +1,12 @@
 package com.chess.engine.pieces;
 
+import static com.chess.engine.board.Move.*;
+
 import com.chess.engine.Alliance;
 import com.chess.engine.board.Board;
 import com.chess.engine.board.BoardUtils;
 import com.chess.engine.board.Move;
+import com.chess.engine.board.Move.MajorMove;
 import com.chess.engine.board.Tile;
 import com.google.common.collect.ImmutableList;
 import java.util.ArrayList;
@@ -22,7 +25,7 @@ public class Knight extends Piece {
   }
 
   @Override
-  public Collection<Move> calculateLegalMoves(Board board) {
+  public Collection<Move> calculateLegalMoves(final Board board) {
 
     final List<Move> legalMoves = new ArrayList<>();
 
@@ -32,7 +35,7 @@ public class Knight extends Piece {
       final int candidateDestinationCoordinate = this.piecePosition
           + currentCandidateOffset; // 나이트 이동 가능한 후보군 좌표 = 지금 나이트의 위치 + 이동 가능한 8가지 위치 중 하나
 
-      if (BoardUtils.isVaildTileCoordinate(candidateDestinationCoordinate)) {
+      if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) {
 
         if (isFirstColumnExclusion(this.piecePosition, currentCandidateOffset) ||
             isSecondColumnExclusion(this.piecePosition, currentCandidateOffset) ||
@@ -44,14 +47,14 @@ public class Knight extends Piece {
         final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
         // 타일이 점유되어 있지 않을 때
         if (!candidateDestinationTile.isTileOccupied()) {
-          legalMoves.add(new Move()); // 새로운 이동 추가
+          legalMoves.add(new MajorMove(board, this, candidateDestinationCoordinate )); // 새로운 이동(Major moves) 추가
         } else { // 타일이 점유되어 있을 때
           final Piece pieceAtDestination = candidateDestinationTile.getPiece(); // 해당 위치에서 기물을 가져옴
           final Alliance pieceAlliance = pieceAtDestination.getPieceAlliance(); // 해당 기물의 좌표가 흰색인지 검은색인지. 동맹 여부 파악
 
           // 현재 말의 색과 이동하려는 기물의 색이 다르다면 -> 적 (enemy)
           if (this.pieceAlliance != pieceAlliance) {
-            legalMoves.add(new Move()); // 공격 이동 추가
+            legalMoves.add(new AttackMove(board, this, candidateDestinationCoordinate, pieceAtDestination)); // 공격 이동 추가
           }
         }
       }
