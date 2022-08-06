@@ -21,7 +21,9 @@ Board와 Move class 생성
 Offset 만큼 이동한 위치가 예상과는 다른 (범위를 벗어난) 위치일 수 있다. 이것을 처리한다.  
 [8/2] BoardUtils 클래스의 initColumn 함수 구현. 해당 함수로 첫 번째, 두 번째, 일곱 번째, 여덟 번째 줄에 위치할 때  
 각각 true를 반환하는 Boolean[] 배열 초기화. Knight class의 Exclusion 함수에서 사용.  
-기물의 정상적인 이동과 공격 시 이동을 Move class를 이용해 구현
+기물의 정상적인 이동과 공격 시 이동을 Move class를 이용해 구현  
+[8/6] Piece 를 상속받는 Bishop class 정의. Offset을 이용해 이동 가능한 위치를 계산하고,  
+첫 번째와 여덟 번째 줄에 있을 때 예외처리 
 
 
 ## References
