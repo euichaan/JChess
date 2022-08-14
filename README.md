@@ -23,7 +23,9 @@ Offset 만큼 이동한 위치가 예상과는 다른 (범위를 벗어난) 위�
 각각 true를 반환하는 Boolean[] 배열 초기화. Knight class의 Exclusion 함수에서 사용.  
 기물의 정상적인 이동과 공격 시 이동을 Move class를 이용해 구현  
 [8/6] Piece 를 상속받는 Bishop class 정의. Offset을 이용해 이동 가능한 위치를 계산하고,  
-첫 번째와 여덟 번째 줄에 있을 때 예외처리 
+첫 번째와 여덟 번째 줄에 있을 때 예외처리  
+[8/14] Piece 를 상속받는 Rook class 정의. Offset을 이용해 이동 가능한 위치를 계산하고,  
+첫 번째와 여덟 번째 줄에 있을 때 예외처리  
 
 
 ## References
