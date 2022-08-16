@@ -26,6 +26,7 @@ Offset 만큼 이동한 위치가 예상과는 다른 (범위를 벗어난) 위�
 첫 번째와 여덟 번째 줄에 있을 때 예외처리  
 [8/14] Piece 를 상속받는 Rook class 정의. Offset을 이용해 이동 가능한 위치를 계산하고,  
 첫 번째와 여덟 번째 줄에 있을 때 예외처리  
+[8/16] Piece 를 상속받는 Queen class 정의. Queen은 Bishop과 Rook의 Union으로 구현  
 
 
 ## References
