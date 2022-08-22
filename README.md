@@ -28,7 +28,7 @@ Offset 만큼 이동한 위치가 예상과는 다른 (범위를 벗어난) 위�
 첫 번째와 여덟 번째 줄에 있을 때 예외처리  
 [8/16] Piece 를 상속받는 Queen class 정의. Queen은 Bishop과 Rook의 Union으로 구현  
 [8/17] Piece 를 상속받는 Pawn class 정의. 검은색 Pawn 과 흰색 Pawn의 이동을 표시하기 위해 방향 설정  
-[8/18] Pawn 의 앞 칸이 비어있을 때 두 칸을 이동할 수 있음을 구현. 
+[8/18] Pawn이 조건에 따라 두 칸을 이동할 수 있음을 구현.
 
 
 ## References
