@@ -10,6 +10,7 @@ public abstract class Piece {
 
   protected final int piecePosition; // 위치
   protected final Alliance pieceAlliance; // 흰색, 검은색 중 하나
+  protected final boolean isFirstMove;
 
   public int getPiecePosition() {
     return this.piecePosition;
@@ -23,6 +24,11 @@ public abstract class Piece {
   public Piece(final int piecePosition,final Alliance pieceAlliance) {
     this.piecePosition = piecePosition;
     this.pieceAlliance = pieceAlliance;
+    // TODO more work here
+    this.isFirstMove = false;
+  }
+  public boolean isFirstMove() {
+    return this.isFirstMove;
   }
 
   // 기물의 이동을 구현할 method
