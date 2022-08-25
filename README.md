@@ -30,7 +30,9 @@ Offset 만큼 이동한 위치가 예상과는 다른 (범위를 벗어난) 위�
 [8/17] Piece 를 상속받는 Pawn class 정의. 검은색 Pawn 과 흰색 Pawn의 이동을 표시하기 위해 방향 설정  
 [8/18] Pawn이 조건에 따라 두 칸을 이동할 수 있음을 구현.  
 [8/23] Pawn의 Attack Move 구현.  
-[8/24] Piece 를 상속받는 King class 정의 및 구현.
+[8/24] Piece 를 상속받는 King class 정의 및 구현.  
+[8/25] Builder pattern 을 이용해 (Effective Java 3/E : item 2) Board class 구현.  
+
 
 
 ## References
