@@ -20,7 +20,7 @@ public class Knight extends Piece {
   private final static int[] CANDIDATE_MOVE_COORDINATES = {-17, -15, -10, -6, 6, 10, 15,
       17}; // 현재 위치에서 Knight 가 이동 가능한 지점의 오프셋
 
-  public Knight(final int piecePosition, final Alliance pieceAlliance) {
+  public Knight(final Alliance pieceAlliance, final int piecePosition) {
     super(piecePosition, pieceAlliance);
   }
 
