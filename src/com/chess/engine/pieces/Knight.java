@@ -62,6 +62,11 @@ public class Knight extends Piece {
     return ImmutableList.copyOf(legalMoves);
   }
 
+  @Override
+  public String toString() {
+    return PieceType.KNIGHT.toString();
+  }
+
   // 극단적인 상황의 예외 처리하기
   // 첫 번째 열에 있을 때 현재 위치 + Offset 위치 일 때 가능한 오류 처리
   private static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset) {

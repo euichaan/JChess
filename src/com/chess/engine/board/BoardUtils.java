@@ -7,8 +7,18 @@ public class BoardUtils {
   public static final boolean[] SEVENTH_COLUMN = initColumn(6);
   public static final boolean[] EIGHTH_COLUMN = initColumn(7); // zero Offset
 
-  public static final boolean[] SECOND_ROW = null; // 검은색 Pawn 의 시작 행
-  public static final boolean[] SEVENTH_ROW = null; // 흰색 Pawn 의 시작 행
+  public static final boolean[] SECOND_ROW = initRow(8); // 검은색 Pawn 의 시작 행
+  public static final boolean[] SEVENTH_ROW = initRow(48); // 흰색 Pawn 의 시작 행
+
+  private static boolean[] initRow(int rowNumber) {
+    final boolean[] row = new boolean[NUM_TITLES];
+    do {
+      row[rowNumber] = true;
+      rowNumber++;
+    } while(rowNumber % NUM_TITLES_PER_ROW != 0);
+
+    return row;
+  }
 
   public static final int NUM_TITLES = 64;
   public static final int NUM_TITLES_PER_ROW = 8;

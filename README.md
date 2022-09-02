@@ -33,7 +33,7 @@ Offset 만큼 이동한 위치가 예상과는 다른 (범위를 벗어난) 위�
 [8/24] Piece 를 상속받는 King class 정의 및 구현.  
 [8/25] Builder pattern 을 이용해 (Effective Java 3/E : item 2) Board class 구현.  
 [8/26] Board class : createStandardBoard 메서드를 이용해 초기 체스 판 만들기
-
+[9/2] Board class : toString() 메서드를 오버라이딩해 초기 체스판 구조를 콘솔로 출력
 
 
 ## References

@@ -11,7 +11,9 @@ import com.chess.engine.pieces.Rook;
 import com.google.common.collect.ImmutableList;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class Board {
@@ -24,9 +26,39 @@ public class Board {
     this.gameBoard = createGameBoard(builder);
     this.whitePieces = calculateActivePieces(this.gameBoard, Alliance.WHITE);
     this.blackPieces = calculateActivePieces(this.gameBoard, Alliance.BLACK);
+
+    final Collection<Move> whiteStandardLegalMoves = calculateLegalMoves(this.whitePieces);
+    final Collection<Move> blackStandardLegalMoves = calculateLegalMoves(this.blackPieces);
+    
   }
 
-  private Collection<Piece> calculateActivePieces(final List<Tile> gameBoard, final Alliance alliance) {
+  @Override
+  public String toString() {
+    final StringBuilder builder = new StringBuilder();
+    for (int i = 0; i < BoardUtils.NUM_TITLES; i++) { // 0 ~ 63
+      final String tileText = this.gameBoard.get(i).toString();
+      builder.append(String.format("%3s", tileText));
+      if ((i + 1) % BoardUtils.NUM_TITLES_PER_ROW == 0) {
+        builder.append("\n");
+      }
+    }
+    return builder.toString();
+  }
+
+  private static String prettyPrint(Tile tile) {
+    return tile.toString();
+  }
+
+  private Collection<Move> calculateLegalMoves(final Collection<Piece> pieces) {
+
+    final List<Move> legalMoves = new ArrayList<>();
+    for (final Piece piece : pieces) {
+        legalMoves.addAll(piece.calculateLegalMoves(this));
+    }
+    return ImmutableList.copyOf(legalMoves);
+  }
+
+  private static Collection<Piece> calculateActivePieces(final List<Tile> gameBoard, final Alliance alliance) {
 
     final List<Piece> activePieces = new ArrayList<>();
     for (final Tile tile : gameBoard) {
@@ -104,7 +136,7 @@ public class Board {
     Alliance nextMoveMaker;
 
     public Builder() {
-
+      this.boardConfig = new HashMap<>();
     }
     //== setter methods==//
     public Builder setPiece(final Piece piece) {
